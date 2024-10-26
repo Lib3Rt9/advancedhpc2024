@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\setcounter{secnumdepth}{4}
+
+\title{Labwork 1 and 2: Get to know your GPU}
+\author{Pham Gia Phuc}
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+
+\setlength\parindent{0pt}
+
+\section{Introduction}
+
+    \subsection{Definition}
+
+    A Graphical Processing Unit (GPU) is a specialized electronic circuit initially designed for digital image processing and to accelerate computer graphics, being present either as a discrete video card or embedded on motherboards, mobile phones, personal computers, workstations, and game consoles...
+    
+    \subsection{Usage}
+
+    After their initial design, GPUs were found to be useful for non-graphic calculations involving embarrassingly parallel problems due to their parallel structure. Other non-graphical uses include the training of neural networks and cryptocurrency mining.
+    
+    
+\section{Implementation}
+
+    \subsection{Introduction to CUDA}
+
+        Compute Unified Device Architecture \\
+        • A C/C++ SDK to accelerate algorithms on NVIDIA GPUs1 \\
+        • A SIMT (Single Instruction Multiple Thread) model \\
+        • SIMD combinded with multithreading \\
+        • First released in 2006 \\
+
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{@{}ll@{}}
+                \textbf{CPU}                     & \textbf{GPU}                       \\
+                Low Latency                      & High Throughput                    \\
+                Complex Computations             & Simple Computation                 \\
+                Flexible                         & Less Flexible                      \\
+                High Clock Speed                 & Lower Clock Speed                  \\
+                Few Cores                        & Moooooore Cores                    \\
+                Like a Boss                      & Like an Army of Interns            \\ 
+            \end{tabular}
+            \caption{Comparison of CPU and GPU Characteristics}
+            \label{tab:cpu_gpu_comparison}
+        \end{table}
+        
+\section{CUDA information in this report}
+This report is using CUDA kernel provided by Google Colaboratory.
+
+    \subsection{Overview}
+    
+        \begin{itemize}
+            \item \textbf{Number of CUDA Devices Found:} 1
+            \item \textbf{Device ID:} 0
+            \item \textbf{Name:} Tesla T4
+            \item \textbf{Compute Capability:} 7.5
+            \item \textbf{PCI Device ID:} 4
+            \item \textbf{PCI Bus ID:} 0
+            \item \textbf{UUID:} GPU-af936f72-170a-716a-326e-6053e93d8f54
+            \item \textbf{Watchdog:} Disabled
+            \item \textbf{FP32/FP64 Performance Ratio:} 32
+            \item \textbf{Multiprocessor count:} 40
+            \item \textbf{Approximate core count:} 2560
+            \item \textbf{Total memory size:} 14.75 GB
+        \end{itemize}
+
+\section{Conclusion}
+    
+    These information above conclude the labwork 1 and 2.
+
+\end{document}
