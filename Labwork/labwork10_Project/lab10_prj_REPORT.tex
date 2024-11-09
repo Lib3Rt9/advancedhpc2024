@@ -50,7 +50,7 @@ This lab aims to implement the Kuwahara filter in CUDA, both with and without sh
 
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\linewidth]{Kuwahara.jpg}
+        \includegraphics[width=0.2\linewidth]{Kuwahara.jpg}
         \caption{Window used by a Kuwahara filter. It is divided into 4 square regions: a, b, c, and d. Pixels in the central row and column belong to multiple regions.}
         \label{fig:kuwahara-window}
     \end{figure}
@@ -69,25 +69,35 @@ This lab aims to implement the Kuwahara filter in CUDA, both with and without sh
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\linewidth]{wolf.jpg}
+        \includegraphics[width=0.3\linewidth]{wolf.jpg}
         \caption{A sample image}
         \label{fig:sample-image}
     \end{figure}
 
-    The filter was applied to various image resolutions, yielding the results in Figures~\ref{fig:sample_result_small} and \ref{fig:sample_result_big}. These images illustrate the filter's effectiveness in producing an oil effect while preserving edges.
+    % The filter was applied to various image resolutions, yielding the results in Figures~\ref{fig:sample_result_small} and \ref{fig:sample_result_big}. These images illustrate the filter's effectiveness in producing an oil effect while preserving edges.
 
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.5\linewidth]{rsmall.png}
-        \caption{Filtered result with a 640x800 pixel image}
-        \label{fig:sample_result_small}
-    \end{figure}
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.3\linewidth]{rsmall.png}
+    %     \caption{Filtered result with a 640x800 pixel image}
+    %     \label{fig:sample_result_small}
+    % \end{figure}
+    
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics[width=0.3\linewidth]{rbig.png}
+    %     \caption{Filtered result with a 9000x5625 pixel image}
+    %     \label{fig:sample_result_big}
+    % \end{figure}
 
-    \begin{figure}
+    The filter was applied to various image resolutions, yielding the results in Figures~\ref{fig:sample_results}. These images illustrate the filter's effectiveness in producing an oil effect while preserving edges.
+    
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\linewidth]{rbig.png}
-        \caption{Filtered result with a 9000x5625 pixel image}
-        \label{fig:sample_result_big}
+        \includegraphics[height=0.4\linewidth]{rsmall.png}
+        \includegraphics[height=0.4\linewidth]{rbig.png}
+        \caption{Filtered results with the Kuwahara filter.}
+        \label{fig:sample_results}
     \end{figure}
 
     \subsection{Performance Analysis}
