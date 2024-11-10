@@ -1,0 +1,18 @@
+Test 1
+
+Problem: Super slow!
+
+Causes:
+	- Distance Calculation in Loops: Calculating Euclidean distances in loops, especially in both KMeans and FuzzyCMeans, can become computationally heavy for images with many pixels. Each distance calculation is done individually in a loop, which is inefficient for large datasets.
+	- Lack of Vectorization: The current implementation calculates distances for each point one at a time. Vectorized operations in libraries like NumPy can dramatically reduce processing time by performing batch computations.
+	- Python Loops in predict and fit Methods: The predict and fit methods in both classes use Python loops, which are slower than vectorized operations for large datasets.
+	- Membership Matrix in FuzzyCMeans: The membership matrix update step in Fuzzy C-Means is computationally expensive due to the fuzzy exponentiation and multiple distance computations. This step is a known bottleneck.
+
+
+################################################
+
+Test 2
+
+Solve Test 1:
+	- Vectorize Euclidean Distance Calculations: To speed up KMeans and FuzzyCMeans, replace the _euclidean_distance method with a vectorized version that computes distances for all pixels in a single operation.
+	- Avoid Python Loops with NumPy Broadcasting: Use NumPy broadcasting to assign each pixel to the nearest centroid in a single step, bypassing Python loops and boosting performance.
