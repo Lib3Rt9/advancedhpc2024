@@ -1,4 +1,4 @@
-Test 1
+Test 1 - Base implementation on CPU
 
 Problem: Super slow!
 
@@ -11,8 +11,18 @@ Causes:
 
 ################################################
 
-Test 2
+Test 2 - Optimization for Test 1
 
 Solve Test 1:
 	- Vectorize Euclidean Distance Calculations: To speed up KMeans and FuzzyCMeans, replace the _euclidean_distance method with a vectorized version that computes distances for all pixels in a single operation.
 	- Avoid Python Loops with NumPy Broadcasting: Use NumPy broadcasting to assign each pixel to the nearest centroid in a single step, bypassing Python loops and boosting performance.
+
+
+Test 2 is using vectorized calculation for calculating the distances between centroids and the points
+	class Kmean is using Euclidean vectorize
+	class FuzzyCMean is using NumPy's broadcasting and 'np.linalg.norm'
+
+
+################################################
+
+Test 3 - GPU implementation - based on Test 2
