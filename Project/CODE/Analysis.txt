@@ -26,3 +26,25 @@ Test 2 is using vectorized calculation for calculating the distances between cen
 ################################################
 
 Test 3 - GPU implementation - based on Test 2
+
+Problem:
+	SOLVED - Not able to run method
+	SOLVED - Warning divided by 0 when calculating new_centroids
+	SOLVED - Quantized image has only 1 cluster/color
+	- Class FuzzyCMeans not being updated yet
+
+Causes:
+	- problem with thread block x, y
+	- some cluster has 0 points
+	- error in handling NAN and Inf value at this line: `new_centroids = np.nan_to_num(new_centroids, nan=0, posinf=255, neginf=0)  # Handle NaNs and infinities`
+
+Solution:
+	- Use thread per block: (16, 16) instead of 256
+	- Error handling - need at least 1 point per cluster
+	- remove line for handling NAN and Inf
+
+
+################################################
+
+Test 4 - GPU implemetation for FuzzyCMeans
+	- based on Test 3
