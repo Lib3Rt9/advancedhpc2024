@@ -48,3 +48,7 @@ Solution:
 
 Test 4 - GPU implemetation for FuzzyCMeans
 	- based on Test 3
+
+Problem:
+	- Warning dividing to 0
+	- NAN and Inf values causing quantized image has only 1 cluster.
