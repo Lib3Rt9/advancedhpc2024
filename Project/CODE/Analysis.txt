@@ -50,5 +50,19 @@ Test 4 - GPU implemetation for FuzzyCMeans
 	- based on Test 3
 
 Problem:
-	- Warning dividing to 0
-	- NAN and Inf values causing quantized image has only 1 cluster.
+	- Warning dividing to 0 ?
+	- NAN and Inf values causing quantized image has only 1 cluster. ?
+	SOLVED - Quantize image with GPU causing only 1 color - all centroids are almost in the same position -> all in 1 cluster.	
+
+Causes:
+	- 1 color quantize: problem with calculating distances in membership matrix perhaps?
+
+Solution:
+	- ? update membership matrix with GPU along calculating centroids
+
+
+################################################
+
+Test 5 - GPU optimization
+	- based on Test 4
+
