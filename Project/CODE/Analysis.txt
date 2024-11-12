@@ -63,6 +63,18 @@ Solution:
 
 ################################################
 
-Test 5 - GPU optimization
+Test 5 - GPU with shared memory
 	- based on Test 4
 
+Problem:
+	SOLVED - Shared memory not working
+	- Shared memory: The _calculate_centroids_gpu could better utilize shared memory
+	- Shared memory: Fixed shared memory size (32x32) might not be optimal for all cases
+	- Parallelization: Potential thread divergence in some loops
+	- Parallelization: Atomic operations in _calculate_centroids_gpu could be a bottleneck
+
+
+################################################
+
+Test 6 - GPU optimization
+	- based on Test 5
