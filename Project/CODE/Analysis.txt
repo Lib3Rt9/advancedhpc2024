@@ -78,3 +78,21 @@ Problem:
 
 Test 6 - GPU optimization
 	- based on Test 5
+
+Promlem:
+	- Thread divergence, as not all threads may be involved in each step depending on the grid size and the dimensions of X
+	- If the dimensions of data are larger than the block size, the blocks will have underutilized threads
+	- Using cuda.syncthreads() multiple times, which might slow down the performance
+	- Atomic operations can cause contention if too many threads try to access the same memory locations simultaneously, leading to bottlenecks
+
+Cause:
+	- In _calculate_distances_gpu, iterating through X.shape[1] and loading data into shared memory within the loop
+	- Using shared memory arrays for temporary calculations in _calculate_centroids_gpu and _update_centroids_gpu_fcm
+	- Using cuda.syncthreads() more than it is needed (?)
+	- Atomic operations -> bottleneck
+
+Solution:
+	- Not use if inside loop, load only necessary values into shared memory using thread coordination
+	- Ensure number of threads and shared memory usage is optimized based on the dataset size
+	- Use synchronization only when absolutely necessary -> limit cuda.syncthreads()
+	- Minimize the number of atomic operations or use other ways
